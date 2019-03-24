@@ -120,7 +120,23 @@ var temp;//用来当容器(第三方)
 
 ```
 
-+递归思想
++ 工资
+
+```
+<script>
+			var temp=[];									//给一个空盒子
+			var money = [1500, 1200, 2000, 2100, 1800];		//工资表
+			for (i=0; i<money.length;i++) {					//循环这个工资表
+				if(money[i]>=2000){							//判断如果这个数组大于或等于2000的
+					 temp.push(money[i]);					//赋值给temp并删除小于2000的
+					
+				}
+				
+			}document.write(temp);
+		</script>
+```
+
++ 不死神兔
 
 ```
 function fn(n){
@@ -137,4 +153,36 @@ function fn(n){
 // 				  ==>   fn(3)+fn(2)+fn(2) + fn(1)+fn(2)+fn(1)+fn(1)		//依次类推
 			   // ==>	fn(2)+fn(1) +fn(2)+fn(2) + fn(1)+fn(2)+fn(1)+fn(1)	//差不多每次换算到fn(2)和fn(1)都是1,再把他们加起来就是了
 ```
+
++ 闰年
+
+```
+<script>
+			var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];//月数 
+			var years = Number(prompt('请输入年'));
+			var month = Number(prompt('请输入月'));	//输入年月日，获取这个日期是这一年的第几天 
+			var day = Number(prompt('请输入日'));
+			
+				function panDuan(c){				
+					return c % 4 == 0;				//判断输入的数是否为闰年
+				}
+			
+				function Day(years,month,day){			//函数开始
+					var days=day;						//获取到输入的天数
+					if (month==1) {						//如果月数为一
+						return days;					//直接输出天数
+					}
+					for (i = 0;i < month-1;i ++) {		//循环,看输入的月数为多少开始循环,减一是因为输入的为下标
+						days += months[i];				//d第几天加上之前月的天数(看i循环几次,因为上面已经减去下标了)		
+					}
+					if (panDuan(years) && month>2) {	//如果输入的年是闰年且月份大于2月
+						days++;							//加上一天
+					}
+					 return days;						//输出天数
+				}
+				
+				document.write('今天是今年的第' + Day(years, month, day) + '天');
+		</script>
+```
+
 ## 今天就到这里了
